@@ -2,14 +2,16 @@ import React from 'react';
 import ItemComponent from './ItemComponent';
 
 export default function ListComponent(props){
+    const itens = props.itens
     return (
-    <div>
-        <h2>{props.listName}</h2>
-        <ul>
-            <ItemComponent name={'Item 1'} />
-            <ItemComponent name={'Item 2'} />
-        </ul>
-    </div>
-    );
-    
+        <div>
+            <h3>{props.listName}</h3>
+            
+            <ul>
+                {itens.map(item => <ItemComponent key={item.id} 
+                                                  nome={item.nome}
+                                                  status={item.finalizado} />)}
+            </ul>
+        </div>
+    )
 }
