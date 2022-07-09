@@ -5,7 +5,7 @@ export default function ItemComponent(props){
     return (
         <div>         
             <li>
-              { props.nome }
+               { props.nome }
                 <p> Status.: { status ? 'finalizado' : 'a fazer' }</p> 
             </li>
 
