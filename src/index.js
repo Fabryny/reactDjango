@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import UserLists from './components/UserList';
+import LoginComponent from './components/LoginComponent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <UserLists/>
+    <LoginComponent/>
   </React.StrictMode>
 );
 
