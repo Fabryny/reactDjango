@@ -9,6 +9,7 @@ export default class LoginComponent extends React.Component{
           this.handleChange = this.handleChange.bind(this);
           this.handleSubmit = this.handleSubmit.bind(this);
           this.handleChangePassword = this.handleChangePassword.bind(this);
+          this.logout = this.logout.bind(this);
         }
       
         handleChange(event) {
@@ -17,6 +18,11 @@ export default class LoginComponent extends React.Component{
       
         handleChangePassword(event) {
           this.setState({password: event.target.value});
+        }
+
+        logout(){
+            localStorage.removeItem('token');
+            this.setState({token: null})
         }
       
         handleSubmit(event) {
@@ -50,8 +56,13 @@ export default class LoginComponent extends React.Component{
                 </form>
                 );
             } else {
-                return <UserLists />
+                return (
+                    <div>
+                        <UserLists />
+                        <button onClick={() => this.logout()}>Logout</button>
+                    </div>
 
+                )
             }
                   
         }
