@@ -9,7 +9,7 @@ export default class LoginComponent extends React.Component{
           this.handleChange = this.handleChange.bind(this);
           this.handleSubmit = this.handleSubmit.bind(this);
           this.handleChangePassword = this.handleChangePassword.bind(this);
-          this.logout = this.logout.bind(this);
+
         }
       
         handleChange(event) {
@@ -35,8 +35,12 @@ export default class LoginComponent extends React.Component{
             fetch(url, requestOptions).then(
                 response => response.json()).then(
                 data => {
-                    localStorage.setItem('token', data.token);
-                    this.setState({token: data.token});
+                    if(data.token){
+                        localStorage.setItem('token', data.token);
+                        this.setState({token: data.token});
+                    } else {
+                        alert('dados invalidos')
+                    }
                 });
             event.preventDefault();
         }
